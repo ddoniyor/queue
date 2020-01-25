@@ -39,7 +39,7 @@ func (receiver *queue) first() interface{} {
 }
 
 func (receiver *queue) last() interface{} {
-	if receiver.firstEl == nil {
+	if receiver.lastEl == nil {
 		return nil
 	}
 	return receiver.lastEl.value
@@ -66,6 +66,7 @@ func (receiver *queue) equeue(elementPtr interface{}) {
 				prev:  nextValuePtr,
 				value: elementPtr,
 			}
+			receiver.lastEl = nextValuePtr.next
 			return
 		}
 		nextValuePtr = nextValuePtr.next
