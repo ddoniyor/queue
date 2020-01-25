@@ -75,13 +75,13 @@ func (receiver *queue) equeue(elementPtr interface{}) {
 
 }
 
-func (receiver *queue) dequeue() {
+func (receiver *queue) dequeue() interface{} {
 	if receiver.len() == 0 {
-		return
+		return queue{}
 	}
 	if receiver.len() == 1 {
 		receiver.size = 0
-		return
+		return queue{}
 	}
 	receiver.firstEl = receiver.firstEl.next
 	current := receiver.firstEl
@@ -96,11 +96,18 @@ func (receiver *queue) dequeue() {
 		receiver.lastEl = receiver.firstEl
 
 	}
-
+	return queue{}
 }
 
 func main() {
 	t := queue{}
 	fmt.Println(t)
+
+	j := queue{}
+	j.equeue(1)
+	j.equeue(1)
+	j.equeue(1)
+	j.dequeue()
+	fmt.Println(j)
 
 }
