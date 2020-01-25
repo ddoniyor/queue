@@ -9,6 +9,7 @@ func Test_empty_queue(t *testing.T) {
 	if queueList.len() != 0 {
 		t.Error("new list length must be zero, got: ", queueList.len())
 	}
+
 }
 
 func Test_queue_with_one_result(t *testing.T) {
@@ -29,15 +30,15 @@ func Test_queue_with_multiple_result(t *testing.T) {
 	}
 }
 
-func Test_dequeue_for_function(t *testing.T){
+func Test_dequeue_for_function(t *testing.T) {
 	queueList := queue{}
 	queueList.equeue(1)
 	queueList.equeue(1)
 	queueList.equeue(1)
 	queueList.dequeue()
 
-	if queueList.len() !=2{
-		t.Error("after removing firstEl element size must be 2, got: ",queueList.len())
+	if queueList.len() != 2 {
+		t.Error("after removing firstEl element size must be 2, got: ", queueList.len())
 	}
 }
 func Test_dequeue_removed_single_element(t *testing.T) {
@@ -46,7 +47,7 @@ func Test_dequeue_removed_single_element(t *testing.T) {
 
 	queueList.dequeue()
 
-	if queueList.len() !=0 {
+	if queueList.len() != 0 {
 		t.Error("after removing firstEl element size must be 0, got: ", queueList.len())
 	}
 }
@@ -56,7 +57,7 @@ func Test_dequeue_for_no_result(t *testing.T) {
 
 	queueList.dequeue()
 
-	if queueList.len() !=0 {
+	if queueList.len() != 0 {
 		t.Error("after removing firstEl element size must be 0, got: ", queueList.len())
 	}
 }
