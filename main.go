@@ -1,9 +1,9 @@
 package main
 
 type queue struct {
-	first *queueNode
-	last  *queueNode
-	size  int
+	firstEl *queueNode
+	lastEl  *queueNode
+	size    int
 
 
 }
@@ -34,28 +34,28 @@ func (receiver *queue) len() int {
 	return receiver.size
 }
 
-func (receiver *queue) firstP() *queueNode {
-	return receiver.first
+func (receiver *queue) first() *queueNode {
+	return receiver.firstEl
 }
 
-func (receiver *queue) lastP() *queueNode {
-	return receiver.last
+func (receiver *queue) last() *queueNode {
+	return receiver.lastEl
 }
 
 func (receiver *queue) equeue(elementPtr interface{}) {
 	if receiver.len() == 0 {
-		receiver.first = &queueNode{
+		receiver.firstEl = &queueNode{
 			next:  nil,
 			prev:  nil,
 			value: elementPtr,
 		}
-		receiver.last = receiver.first
+		receiver.lastEl = receiver.firstEl
 		receiver.size++
 		return
 	}
 	receiver.size++
 
-	nextValuePtr := receiver.first
+	nextValuePtr := receiver.firstEl
 	for {
 		if nextValuePtr.next == nil {
 			nextValuePtr.next = &queueNode{
@@ -78,8 +78,8 @@ func (receiver *queue) dequeue() {
 		receiver.size = 0
 		return
 	}
-	receiver.first = receiver.first.next
-	current := receiver.first
+	receiver.firstEl = receiver.firstEl.next
+	current := receiver.firstEl
 	receiver.size = 1
 
 	for current.next != nil {
@@ -88,7 +88,7 @@ func (receiver *queue) dequeue() {
 	}
 
 	if receiver.len() == 0 {
-		receiver.last = receiver.first
+		receiver.lastEl = receiver.firstEl
 
 	}
 

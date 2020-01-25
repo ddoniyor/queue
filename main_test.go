@@ -37,7 +37,7 @@ func Test_dequeue_for_function(t *testing.T){
 	queueList.dequeue()
 
 	if queueList.len() !=2{
-		t.Error("after removing first element size must be 2, got: ",queueList.len())
+		t.Error("after removing firstEl element size must be 2, got: ",queueList.len())
 	}
 }
 func Test_dequeue_removed_single_element(t *testing.T) {
@@ -47,7 +47,7 @@ func Test_dequeue_removed_single_element(t *testing.T) {
 	queueList.dequeue()
 
 	if queueList.len() !=0 {
-		t.Error("after removing first element size must be 0, got: ", queueList.len())
+		t.Error("after removing firstEl element size must be 0, got: ", queueList.len())
 	}
 }
 
@@ -57,6 +57,6 @@ func Test_dequeue_for_no_result(t *testing.T) {
 	queueList.dequeue()
 
 	if queueList.len() !=0 {
-		t.Error("after removing first element size must be 0, got: ", queueList.len())
+		t.Error("after removing firstEl element size must be 0, got: ", queueList.len())
 	}
 }
