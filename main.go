@@ -4,16 +4,13 @@ type queue struct {
 	firstEl *queueNode
 	lastEl  *queueNode
 	size    int
-
-
 }
 
 type queueNode struct {
-	next  *queueNode
-	prev  *queueNode
-	value interface{}
+	next     *queueNode
+	prev     *queueNode
+	value    interface{}
 	priority int
-
 }
 
 type ByQueue []queueNode
