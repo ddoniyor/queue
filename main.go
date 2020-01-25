@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type queue struct {
 	firstEl *queueNode
 	lastEl  *queueNode
@@ -81,6 +79,8 @@ func (receiver *queue) dequeue() interface{} {
 	}
 	if receiver.len() == 1 {
 		receiver.size = 0
+		receiver.firstEl = nil
+		receiver.lastEl = nil
 		return queue{}
 	}
 	receiver.firstEl = receiver.firstEl.next
@@ -100,14 +100,5 @@ func (receiver *queue) dequeue() interface{} {
 }
 
 func main() {
-	t := queue{}
-	fmt.Println(t)
-
-	j := queue{}
-	j.equeue(1)
-	j.equeue(1)
-	j.equeue(1)
-	j.dequeue()
-	fmt.Println(j)
 
 }
